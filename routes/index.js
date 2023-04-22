@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 
   res.render('index', {
-    title: 'Programación 2, 2023-1',
+    title: 'Curriculum Vitae',
     name: name,
   });
 });
