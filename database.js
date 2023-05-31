@@ -6,13 +6,13 @@ let db = new sqlite3.Database(':memory:', (err) => {
     }
     console.log('Connected to the in-memory SQlite database.');
 
-    db.run("CREATE TABLE IF NOT EXISTS contactos (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, comment TEXT NOT NULL, date TEXT NOT NULL, ip TEXT NOT NULL)");
+    db.run("CREATE TABLE IF NOT EXISTS contactos (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, comment TEXT NOT NULL, date TEXT NOT NULL, ip TEXT NOT NULL, country TEXT NOT NULL)");
 });
 
 
 module.exports = {
-    insert: function (name, email, comment, time, IP) {
-        db.run("INSERT INTO contactos (name, email, comment, date, ip) VALUES (?, ?, ?, ?, ?)", [name, email, comment, time, IP], function (err) {
+    insert: function (name, email, comment, time, IP, country) {
+        db.run("INSERT INTO contactos (name, email, comment, date, ip, country) VALUES (?, ?, ?, ?, ?, ?)", [name, email, comment, time, IP, country], function (err) {
             if (err) {
                 return console.log(err.message);
             }

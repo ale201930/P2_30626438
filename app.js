@@ -7,7 +7,19 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const request = require ('request');
+
 var app = express();
+
+//Variables de entorno
+process.env.hostemail = "smtp.hostinger.com";
+process.env.useremail = "test009@arodu.dev";
+process.env.passemail = "eMail.test009";
+process.env.fromemail = "test009@arodu.dev";
+process.env.secretkey = "6Ley51cmAAAAAMmCVrhLzxSdj0eyhageyDYR0s49";
+process.env.sitekey = "6Ley51cmAAAAAD6WGBw_QPUuOmdHCGfN_S8FA0Y_";
+
+
 
 // view engine setup   
 app.set('views', path.join(__dirname, 'views'));
