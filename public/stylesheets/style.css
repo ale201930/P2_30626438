@@ -80,15 +80,15 @@
   }
   .message {   
     background-color: rgb(255, 255, 255);
-    border-bottom: 5px solid #2BB09A;
+    border-bottom: 5px solid #2bb09a;
     overflow: hidden;
     height: 100px;  
     width:300px;
   }
 
   .message:hover{
-    background-color: #2DD7BB;
-    border-bottom: 5px solid #2BB09A;
+    background-color: #2bb09a;
+    border-bottom: 5px solid #2bb09a;
     height: 100px;
     width:370px;
   }
