@@ -3,6 +3,9 @@ const db = require('../database');
 var router = express.Router();
 const nodemailer = require('nodemailer');
 const request = require ('request');
+require ('dotenv').config(); 
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -43,9 +46,9 @@ router.post('/', function(req, res, next) {
           }
         });
         const mailOptions = {
-          from: process.env.fromemail,
+          from: process.env.useremail,
           //Lista de correos 
-          to: ['almagueralexander839@gmail.com', 'samueljpb@gmail.com', '`programacion2ais@dispostable.com'],
+          to: ['almagueralexander839@gmail.com', 'samueljpb@gmail.com', 'programacion2ais@dispostable.com'],
           subject: 'Task 3: Third Party Connection ',
           text: 'Un nuevo ususuario se ha registrado en el formulario:\n' + 'Nombre: ' + name + '\nCorreo: ' + email + '\nMensaje: ' + comment + '\nFecha y hora: ' + time + '\nIP: ' + IP + '\nUbicacion: ' + country
         };
