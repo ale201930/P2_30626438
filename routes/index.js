@@ -13,7 +13,33 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Formulario',
     name: name,
-  });});
+  });
+});
+
+  router.get('/login', (req, res) => {
+    res.render('login');
+   });
+
+   router.post('/login', function(req, res, next) {
+    let user = req.body.user
+    let pass = req.body.pass
+    if (user == process.env.user && pass == process.env.pass)  {
+      db.select(function (rows) {
+        // console.log(rows);
+        res.render('contactos', {rows: rows});
+      });
+    } else {
+      res.render('login', { error: 'Datos incorrectos' });
+    }
+  });
+  
+  router.get('/contactos', function(req, res, next) {
+    db.select(function (rows) {
+      // console.log(rows);
+      res.render('contactos', {rows: rows});
+    });
+   
+  });
 
 router.post('/', function(req, res, next) {
   const captcha = req.body['g-recaptcha-response'];
